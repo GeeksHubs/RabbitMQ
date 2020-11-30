@@ -1,0 +1,14 @@
+{
+    "name": "geekshubs/rabbitmq",
+    "description": "Package from RabbitMQ adapter",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Xavi",
+            "email": "xavi@geekshubs.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
