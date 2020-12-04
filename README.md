@@ -6,4 +6,5 @@
     <img src="https://github.com/GeeksHubsAcademy/2020-geekshubs-media/blob/master/image/logo.png">	
 </p>
 
-RabbitMQ library for use in Laravel made with much :two_hearts:
+Adaptation of the php-amqplib package for use in Laravel made with much :two_hearts:
+For more information on php-aqpmqblib package visit their <a href="https://github.com/php-amqplib/php-amqplib">repository</a>
