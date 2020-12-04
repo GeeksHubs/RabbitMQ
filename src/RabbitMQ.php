@@ -4,11 +4,6 @@ declare(strict_types=1);
 namespace Geekshubs\RabbitMQ;
 
 
-use ApiGateway\Common\Infraestructure\Services\RabbitMQ\Connection;
-use ApiGateway\Common\Infraestructure\Services\RabbitMQ\Exchange;
-use ApiGateway\Common\Infraestructure\Services\RabbitMQ\Publisher;
-use ApiGateway\Common\Infraestructure\Services\RabbitMQ\RequestRPC;
-
 final class RabbitMQ
 {
     private Connection $connection;

@@ -4,8 +4,6 @@ declare(strict_types=1);
 namespace Geekshubs\RabbitMQ;
 
 
-use ApiGateway\Common\Application\Traits\ApiResponse;
-use ApiGateway\Common\Infraestructure\Services\RabbitMQ\Connection;
 use Illuminate\Support\Facades\Log;
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Message\AMQPMessage;
@@ -20,7 +18,7 @@ final class RequestRPC
     public string $id;
 
 
-    use ApiResponse;
+
     public function __construct(Connection $connection, string $callback_queue)
     {
 

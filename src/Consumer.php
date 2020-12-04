@@ -23,7 +23,7 @@ final class Consumer
 
     public function __invoke(string $queue='', string $exchange='', $routing_key=''):void
     {
-        try {
+
 
             $callback = function ($msg) {
                 log::info("Mensaje ->" .$msg->delivery_info['routing_key']." mensaje -> ".$msg->body);
@@ -48,15 +48,8 @@ final class Consumer
 
             while (count($this->channel->callbacks)) {
                 log::info("Esperando mensajes en cola ->". count($this->channel->callbacks) );
-                $this->channel->wait(null,false,5);
+                $this->channel->wait();
             }
-
-        } catch (\Exception $ex) {
-            log::error("Error en el consumo de mensajes ->". $ex->getMessage());
-        } finally {
-            log::info("Cerrando la conexión");
-            $this->connection->shutdown();
-        }
 
     }
     public function messageReceived($msg):void{

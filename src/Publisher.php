@@ -3,8 +3,6 @@
 
 namespace Geekshubs\RabbitMQ;
 
-
-use ApiGateway\Common\Infraestructure\Services\RabbitMQ\Connection;
 use Illuminate\Support\Facades\Log;
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Message\AMQPMessage;
