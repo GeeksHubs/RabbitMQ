@@ -12,7 +12,7 @@ final class Consumer
 {
     private ?AMQPChannel $channel;
     private Connection $connection;
-    private $messageObject;
+    private MessageI $messageObject;
     public function __construct(Connection $connection,MessageI  $messageObject)
     {
 
