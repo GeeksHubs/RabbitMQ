@@ -32,7 +32,7 @@ $app->register(Geekshubs\RabbitMQ::class);
 ```
 
 ## :mag_right: Change log
-Please see <a href="https://github.com/GeeksHubsAcademy/RabbitMQ/blob/master/changelog.md"></a>CHANGELOG for more information what has changed recently.
+Please see <a href="https://github.com/GeeksHubsAcademy/RabbitMQ/blob/master/changelog.md">CHANGELOG</a> for more information what has changed recently.
 
 
 ## :superhero_woman: Contribute.
