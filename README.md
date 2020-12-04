@@ -23,7 +23,7 @@ composer require geekshubs/rabbitmq
 ```
 
 
-### Lumen
+###  :bulb: Lumen
 
 On Lumen, just register the ServiceProvider manually in your `bootstrap/app.php` file:
 
