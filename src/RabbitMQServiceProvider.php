@@ -14,8 +14,8 @@ class RabbitMQServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->bind('Geekshubs/RabbitMQ',function ($app){
-            return new RabbitMQ();
+        $this->app->singleton(RabbitMQ::class, function ($app) {
+            return new RabbitMQ($app);
         });
     }
 
