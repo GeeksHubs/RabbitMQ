@@ -6,4 +6,4 @@
     <img src="https://github.com/GeeksHubsAcademy/2020-geekshubs-media/blob/master/image/logo.png">	
 </p>
 
-Example of a Nodejs application using TypeScript, Inversify and  TypeORM made with :two_hearts:
+RabbitMQ library for use in Laravel made with much :two_hearts:
