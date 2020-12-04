@@ -21,7 +21,13 @@ Require the `geekshubs/rabbitmq` package in your `composer.json` and update your
 ```sh
 composer require geekshubs/rabbitmq
 ```
+In app/config/app.php add the following :
 
+The ServiceProvider to the providers array :
+
+```php
+Geekshubs\RabbitMQ\RabbitMQServiceProvider::class,
+```
 
 ###  :bulb: Lumen
 
