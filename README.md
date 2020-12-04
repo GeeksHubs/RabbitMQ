@@ -9,3 +9,6 @@
 Adaptation of the php-amqplib package for use in Laravel made with much :two_hearts:
 
 For more information on php-aqpmqblib package visit their <a href="https://github.com/php-amqplib/php-amqplib">repository</a>
+
+
+## 🚀 Setup
