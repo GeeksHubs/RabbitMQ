@@ -22,6 +22,15 @@ Require the `geekshubs/rabbitmq` package in your `composer.json` and update your
 composer require geekshubs/rabbitmq
 ```
 
+## :superhero_woman: Contribute.
+Feel free to make as many pull requests as you think fit, because there are so many things to do, all help is welcome.
+
+Here is a guide if you want to take a look(https://github.com/GeeksHubsAcademy/2020-geekshubs-convenio/blob/master/contributing.md)
+
+If you find a bug, let us know <a href="https://github.com/GeeksHubsAcademy/RabbitMQ/issues">here</a> .
+
+If you request a new  <a href ="https://github.com/GeeksHubsAcademy/RabbitMQ/issues"> feature</a>.
+
 
 
 
