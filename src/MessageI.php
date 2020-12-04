@@ -8,6 +8,6 @@ use PhpAmqpLib\Message\AMQPMessage;
 
 interface MessageI
 {
-    public function getMessage():AMQPMessage;
+    public function Message():void;
 
 }
