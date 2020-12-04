@@ -2,7 +2,7 @@
 
 
 namespace Geekshubs\RabbitMQ;
-
+use Illuminate\Support\ServiceProvider;
 
 class RabbitMQServiceProvider extends ServiceProvider
 {
