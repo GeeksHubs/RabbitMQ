@@ -12,12 +12,14 @@ final class Consumer
 {
     private ?AMQPChannel $channel;
     private Connection $connection;
-
-    public function __construct(Connection $connection)
+    private $messageObject;
+    public function __construct(Connection $connection,MessageI  $messageObject)
     {
 
         $this->connection = $connection;
         $this->channel = $connection->getChannel();
+        $this->messageObject = $messageObject;
+
     }
 
     public function __invoke(string $queue='', string $exchange='', $routing_key=''):void
@@ -28,6 +30,7 @@ final class Consumer
                 log::info("Mensaje ->" .$msg->delivery_info['routing_key']." mensaje -> ".$msg->body);
                 log::info("Ack ->".$msg->delivery_info['delivery_tag']);
                 $msg->delivery_info['channel']->basic_ack($msg->delivery_info['delivery_tag']);
+                $this->messageReceived($msg);
             };
 
             $this->channel->queue_bind($queue,$exchange,$routing_key);
@@ -56,5 +59,8 @@ final class Consumer
             $this->connection->shutdown();
         }
 
+    }
+    public function messageReceived($msg):void{
+        $this->messageObject->Message($msg);
     }
 }
