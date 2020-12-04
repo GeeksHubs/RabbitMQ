@@ -7,7 +7,7 @@
 </p>
 
 ![Packagist Downloads](https://img.shields.io/packagist/dt/geekshubs/rabbitmq?style=plastic)
-
+![ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 
 Adaptation of the php-amqplib package for use in Laravel made with much :two_hearts:
 
