@@ -7,7 +7,8 @@
 </p>
 
 ![Packagist Downloads](https://img.shields.io/packagist/dt/geekshubs/rabbitmq?style=plastic)
-[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+![Packagist License](https://img.shields.io/packagist/l/geekshubs/rabbitmq?logoColor=red)
+![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/geekshubs/rabbitmq)
 
 Adaptation of the php-amqplib package for use in Laravel made with much :two_hearts:
 
