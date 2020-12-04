@@ -6,7 +6,7 @@
     <img src="https://github.com/GeeksHubsAcademy/2020-geekshubs-media/blob/master/image/logo.png">	
 </p>
 
-![Packagist Downloads](https://img.shields.io/packagist/dt/geekshubs/rabbitmq?style=plastic)
+![Packagist Downloads](https://img.shields.io/packagist/dt/geekshubs/rabbitmq?style=flat)
 ![Packagist License](https://img.shields.io/packagist/l/geekshubs/rabbitmq?logoColor=red)
 ![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/geekshubs/rabbitmq)
 
