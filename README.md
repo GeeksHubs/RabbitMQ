@@ -15,7 +15,12 @@ Adaptation of the php-amqplib package for use in Laravel made with much :two_hea
 For more information on php-aqpmqblib package visit their <a href="https://github.com/php-amqplib/php-amqplib">repository</a>
 
 
-## 🚀 Setup
+## 🚀 Installation
+
+Require the `geekshubs/rabbitmq` package in your `composer.json` and update your dependencies:
+```sh
+composer require geekshubs/rabbitmq
+```
 
 
 
@@ -24,6 +29,3 @@ For more information on php-aqpmqblib package visit their <a href="https://githu
 
 
 
-
-
-[ico-downloads]: https://img.shields.io/packagist/dt/fruitcake/laravel-cors.svg?style=flat-square
