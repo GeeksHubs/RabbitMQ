@@ -2,7 +2,7 @@
 
 
 namespace Geekshubs\RabbitMQ;
-
+use Illuminate\Support\ServiceProvider;
 
 class RabbitMQServiceProvider extends ServiceProvider
 {
@@ -14,7 +14,9 @@ class RabbitMQServiceProvider extends ServiceProvider
 
     public function register()
     {
-
+        $this->app->singleton('rabbitmq', function ($app) {
+            return new RabbitMQ();
+        });
     }
 
     public function provides()
