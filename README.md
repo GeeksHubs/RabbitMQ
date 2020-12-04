@@ -22,6 +22,18 @@ Require the `geekshubs/rabbitmq` package in your `composer.json` and update your
 composer require geekshubs/rabbitmq
 ```
 
+
+### Lumen
+
+On Lumen, just register the ServiceProvider manually in your `bootstrap/app.php` file:
+
+```php
+$app->register(Geekshubs\RabbitMQ::class);
+```
+
+
+
+
 ## :superhero_woman: Contribute.
 Feel free to make as many pull requests as you think fit, because there are so many things to do, all help is welcome.
 
