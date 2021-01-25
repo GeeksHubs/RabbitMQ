@@ -34,7 +34,7 @@ final class RabbitMQ
     {
         $requestRpc = new RequestRPC($this->connection, $queue_return);
         $result = $requestRpc->call($id,$queue,$queue_return,$exchange,$routing_key,$message);
-        $this->connection->shutdown();
+      //  $this->connection->shutdown();
         return $result;
     }
 }
