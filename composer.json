@@ -11,7 +11,8 @@
     ],
     "require": {
         "php": ">=7.4",
-        "php-amqplib/php-amqplib": "^2.12"
+        "php-amqplib/php-amqplib": "^2.12.1",
+        "laravel/framework": "^8.25.0"
     },
     "require-dev": {
         "laravel/framework": "^6|^7|^8",
