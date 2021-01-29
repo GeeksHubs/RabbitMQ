@@ -74,4 +74,23 @@ final class RequestRPC
         }
 
     }
+
+    public function response(array $message, AMQPMessage $AMQPMessage):void{
+        try{
+            $transaction = json_encode($message);
+            $message = new AMQPMessage(
+                $transaction,
+                array('correlation_id'=> $AMQPMessage->get('correlation_id'))
+            );
+            $AMQPMessage->get('channel')->basic_publish(
+                $message,
+                '',
+                $AMQPMessage->get('reply_to')
+            );
+
+     }catch (\Exception $ex){
+            log::error("Error response message".$ex->getMessage());
+        }
+
+    }
 }
