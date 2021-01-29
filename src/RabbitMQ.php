@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Geekshubs\RabbitMQ;
 
+use PhpAmqpLib\Message\AMQPMessage;
 
 final class RabbitMQ
 {
@@ -36,5 +37,10 @@ final class RabbitMQ
         $result = $requestRpc->call($id,$queue,$queue_return,$exchange,$routing_key,$message);
         $this->connection->shutdown();
         return $result;
+    }
+
+    public function responseRpc(array $message, AMQPMessage $AMQPMessage):void{
+        $requestRpc = new RequestRPC($this->connection, $AMQPMessage->get('reply_to'));
+        $requestRpc->response($message, $AMQPMessage);
     }
 }
