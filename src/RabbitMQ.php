@@ -42,5 +42,6 @@ final class RabbitMQ
     public function responseRpc(array $message, AMQPMessage $AMQPMessage):void{
         $requestRpc = new RequestRPC($this->connection, $AMQPMessage->get('reply_to'));
         $requestRpc->response($message, $AMQPMessage);
+        $this->connection->shutdown();
     }
 }
