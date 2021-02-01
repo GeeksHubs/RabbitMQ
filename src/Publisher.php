@@ -3,7 +3,6 @@
 
 namespace Geekshubs\RabbitMQ;
 
-use Illuminate\Support\Facades\Log;
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Message\AMQPMessage;
 
@@ -20,8 +19,7 @@ final class Publisher
 
     public function  __invoke(string $queue = "", string $exchange="",string  $routing_key="anonymous.info", string  $message=""):void
     {
-        log::info("Publicando mensaje en la ruta ->".$routing_key);
-        try {
+       try {
             $this->channel->queue_bind($queue,$exchange,$routing_key);
             $message = new AMQPMessage(
                 $message,
@@ -29,9 +27,8 @@ final class Publisher
             );
             $this->channel->basic_publish($message, $exchange, $routing_key);
         } catch (\Exception $ex) {
-            Log::error("Error  ->" . $ex->getMessage());
+            throw new \Exception("Error ->". $ex->getMessage());
         } finally {
-            log::info("Cerrando la conexión");
             $this->connection->shutdown();
         }
     }

@@ -8,9 +8,6 @@ class RabbitMQServiceProvider extends ServiceProvider
 {
     protected $defer=false;
 
-    public function boot()
-    {
-    }
 
     public function register()
     {
@@ -23,7 +20,6 @@ class RabbitMQServiceProvider extends ServiceProvider
     {
         return[
             'RabbitMQ',
-
         ];
     }
 }

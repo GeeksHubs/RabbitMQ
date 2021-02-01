@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace Geekshubs\RabbitMQ;
 
-
-use Illuminate\Support\Facades\Log;
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Message\AMQPMessage;
 
@@ -53,7 +51,6 @@ final class RequestRPC
 
     public function call(string $id='', string $queue = '', string $queue_return='', string $exchange = '', string $routing_key = '', string $message='')
     {
-        log::info("Creando mensaje ->".$message);
         $this->response = null;
         $this->message = null;
         $this->callback_queue = $queue_return;
@@ -72,7 +69,6 @@ final class RequestRPC
         if (!is_null($this->response)) {
             return $this->response;
         }
-
     }
 
     public function response(array $message, AMQPMessage $AMQPMessage):void{
@@ -89,7 +85,7 @@ final class RequestRPC
             );
 
      }catch (\Exception $ex){
-            log::error("Error response message".$ex->getMessage());
+            throw new \Exception("Error repsonse message ->". $ex->getMessage());
         }
 
     }

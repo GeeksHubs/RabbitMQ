@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace Geekshubs\RabbitMQ;
 
-
-use Illuminate\Support\Facades\Log;
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 
@@ -35,7 +33,6 @@ final class Connection
     {
         $this->queue = $queue;
         try {
-            log::info("Creando la conexión");
             $this->connection = new AMQPStreamConnection(
                 $this->host,
                 $this->port,
@@ -47,8 +44,8 @@ final class Connection
             $this->channel->queue_declare($this->queue, false, true, false, false);
             return $this->connection;
         }catch (\Exception $ex){
-            var_dump("Error->".$ex);
-            return null;
+             throw  new \Exception("Error ->".$ex-getmessage());
+             return null;
         }
     }
 
@@ -68,11 +65,11 @@ final class Connection
     }
 
     public function shutdown(){
-        log::info("Cerrando la conexión");
         $this->channel->close();
         try {
             $this->connection->close();
         } catch (\Exception $e) {
+            throw new \Exception("Error to close connection->". $e->getMessage());
         }
     }
 }

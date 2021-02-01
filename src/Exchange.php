@@ -3,9 +3,6 @@ declare(strict_types=1);
 
 namespace Geekshubs\RabbitMQ;
 
-
-
-use Illuminate\Support\Facades\Log;
 use PhpAmqpLib\Channel\AMQPChannel;
 
 final class Exchange
@@ -43,8 +40,7 @@ final class Exchange
     public function __invoke(?string $exchange, ?string $type, ?bool $passive, ?bool $durable, ?bool $auto_delete,?bool $internal, ?bool $wait, ?array $properties):void
     {
         try {
-            log::info("Creando el exchange " .  $exchange);
-            $this->channel->exchange_declare(
+             $this->channel->exchange_declare(
                 !is_null($exchange)?$exchange:$this->exchange,
                 !is_null($type)?$type: $this->exchange_type,
                 !is_null($passive)? $passive: $this->exchange_passive,
@@ -55,7 +51,8 @@ final class Exchange
                 !is_null($properties)?$properties:$this->exchange_properties
             );
         }catch(\Exception $ex){
-            log::error("Error al crear el exchange " . $ex->getMessage());
+            throw new \Exception("Error to create exchange->".$ex->getMessage());
+
         }
     }
 
