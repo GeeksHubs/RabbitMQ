@@ -44,8 +44,8 @@ final class Connection
             $this->channel->queue_declare($this->queue, false, true, false, false);
             return $this->connection;
         }catch (\Exception $ex){
-             throw  new \Exception("Error ->".$ex-getmessage());
-             return null;
+             throw  new \Exception("Error ->".$ex->getMessage());
+           //  return null;
         }
     }
 
