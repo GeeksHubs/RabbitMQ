@@ -23,18 +23,10 @@ final class Exchange
         if (!is_null($connection->getChannel())){
             $this->channel = $connection->getChannel();
         }else{
-            $connection->connect("employee");
-            $this->channel = $connection->getChannel();
+            throw new \Exception("Error no connection created");
         }
 
-        $this->exchange= config('RABBITMQ_EXCHANGE','topic.bussines');
-        $this->exchange_type= config('RABBITMQ_EXCHANGE_TYPE','topic');
-        $this->exchange_passive= config('RABBITMQ_EXCHANGE_PASSIVE',false);
-        $this->exchange_durable= config('RABBITMQ_EXCHANGE_DURABLE',true);
-        $this->exchange_auto_delete = config('RABBITMQ_AUTO_DELETE',false);
-        $this->exchange_internal = config ('RABBITMQ_EXCHANGE_INTERNAL', false);
-        $this->exchange_nowait = config ('RABBIT_EXCHANGE_NOWAIT', false);
-        $this->exchange_properties = config ('RABBIT_EXCHANGE_PROPERTIES', []);
+
     }
 
     public function __invoke(?string $exchange, ?string $type, ?bool $passive, ?bool $durable, ?bool $auto_delete,?bool $internal, ?bool $wait, ?array $properties):void
