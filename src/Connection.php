@@ -18,14 +18,14 @@ final class Connection
     private  AMQPStreamConnection $connection;
     private ?AMQPChannel $channel = null;
 
-    public function __construct()
+    public function __construct(string $host, string $port, string $username, string $password, string $vhost)
     {
 
-        $this->host= config('RABBITMQ_HOST','milgestiones_rabbit');
-        $this->port= config('RABBITMQ_PORT','5672');
-        $this->username= config('RABBITMQ_USERNAME','rabbitmq');
-        $this->password= config('RABBITMQ_PASSWORD','rabbitmq');
-        $this->vhost = config('RABBITMQ_VHOST','/');
+        $this->host= $host;
+        $this->port= $port;
+        $this->username= $username;
+        $this->password= $password;
+        $this->vhost = $vhost;
 
     }
 
