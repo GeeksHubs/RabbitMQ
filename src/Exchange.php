@@ -33,14 +33,14 @@ final class Exchange
     {
         try {
              $this->channel->exchange_declare(
-                !is_null($exchange)?$exchange:$this->exchange,
-                !is_null($type)?$type: $this->exchange_type,
-                !is_null($passive)? $passive: $this->exchange_passive,
-                !is_null($durable)?$durable: $this->exchange_durable,
-                !is_null($auto_delete)?$auto_delete: $this->exchange_auto_delete,
-                !is_null($internal)?$internal:$this->exchange_internal,
-                !is_null($wait)? $wait: $this->exchange_nowait,
-                !is_null($properties)?$properties:$this->exchange_properties
+                !is_null($exchange)?$exchange:null,
+                !is_null($type)?$type: null,
+                !is_null($passive)? $passive: null,
+                !is_null($durable)?$durable: null,
+                !is_null($auto_delete)?$auto_delete: null,
+                !is_null($internal)?$internal: null,
+                !is_null($wait)? $wait: null,
+                !is_null($properties)?$properties:null
             );
         }catch(\Exception $ex){
             throw new \Exception("Error to create exchange->".$ex->getMessage());
