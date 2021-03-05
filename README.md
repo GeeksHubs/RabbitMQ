@@ -38,8 +38,17 @@ Geekshubs\RabbitMQ\RabbitMQServiceProvider::class,
 On Lumen, just register the ServiceProvider manually in your `bootstrap/app.php` file:
 
 ```php
-$app->register(Geekshubs\RabbitMQ::class);
+//Add lines to error reflection class
+$app->instance('path.config', app()->basePath() . DIRECTORY_SEPARATOR . 'config');
+$app->instance('path.storage', app()->basePath() . DIRECTORY_SEPARATOR . 'storage');
 ```
+
+## :space_invader: Examples
+In this Video 
+https://youtu.be/wsMW1ylogl0
+
+In [this Repo](https://github.com/xavi78/rabbitmqinlaravel)
+
 
 ## :mag_right: Change log
 Please see <a href="https://github.com/GeeksHubsAcademy/RabbitMQ/blob/master/changelog.md">CHANGELOG</a> for more information what has changed recently.
