@@ -8,9 +8,9 @@ use PhpAmqpLib\Message\AMQPMessage;
 final class RabbitMQ
 {
     private Connection $connection;
-    public function __construct()
+    public function __construct(string $host, string $port, string $username, string $password, string $vhost)
     {
-        $this->connection = new Connection();
+        $this->connection = new Connection($host,$port,$username,$password,$vhost);
 
     }
     public function createConnect(string $queue)
@@ -42,5 +42,6 @@ final class RabbitMQ
     public function responseRpc(array $message, AMQPMessage $AMQPMessage):void{
         $requestRpc = new RequestRPC($this->connection, $AMQPMessage->get('reply_to'));
         $requestRpc->response($message, $AMQPMessage);
+        $this->connection->shutdown();
     }
 }

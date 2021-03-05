@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace Geekshubs\RabbitMQ;
 
-
-use Illuminate\Support\Facades\Log;
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 
@@ -20,14 +18,14 @@ final class Connection
     private  AMQPStreamConnection $connection;
     private ?AMQPChannel $channel = null;
 
-    public function __construct()
+    public function __construct(string $host, string $port, string $username, string $password, string $vhost)
     {
 
-        $this->host= config('RABBITMQ_HOST','milgestiones_rabbit');
-        $this->port= config('RABBITMQ_PORT','5672');
-        $this->username= config('RABBITMQ_USERNAME','rabbitmq');
-        $this->password= config('RABBITMQ_PASSWORD','rabbitmq');
-        $this->vhost = config('RABBITMQ_VHOST','/');
+        $this->host= $host;
+        $this->port= $port;
+        $this->username= $username;
+        $this->password= $password;
+        $this->vhost = $vhost;
 
     }
 
@@ -35,7 +33,6 @@ final class Connection
     {
         $this->queue = $queue;
         try {
-            log::info("Creando la conexión");
             $this->connection = new AMQPStreamConnection(
                 $this->host,
                 $this->port,
@@ -47,8 +44,8 @@ final class Connection
             $this->channel->queue_declare($this->queue, false, true, false, false);
             return $this->connection;
         }catch (\Exception $ex){
-            var_dump("Error->".$ex);
-            return null;
+             //throw new \Exception("Error ->".$ex->getMessage());
+             return null;
         }
     }
 
@@ -68,11 +65,11 @@ final class Connection
     }
 
     public function shutdown(){
-        log::info("Cerrando la conexión");
         $this->channel->close();
         try {
             $this->connection->close();
         } catch (\Exception $e) {
+            throw new \Exception("Error to close connection->". $e->getMessage());
         }
     }
 }

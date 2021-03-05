@@ -9,6 +9,10 @@
 ![Packagist Downloads](https://img.shields.io/packagist/dt/geekshubs/rabbitmq?style=flat)
 ![Packagist License](https://img.shields.io/packagist/l/geekshubs/rabbitmq?logoColor=red)
 ![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/geekshubs/rabbitmq)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=GeeksHubsAcademy_RabbitMQ&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=GeeksHubsAcademy_RabbitMQ)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=GeeksHubsAcademy_RabbitMQ&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=GeeksHubsAcademy_RabbitMQ)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=GeeksHubsAcademy_RabbitMQ&metric=security_rating)](https://sonarcloud.io/dashboard?id=GeeksHubsAcademy_RabbitMQ)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=GeeksHubsAcademy_RabbitMQ&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=GeeksHubsAcademy_RabbitMQ)
 
 Adaptation of the php-amqplib package for use in Laravel made with much :two_hearts:
 
