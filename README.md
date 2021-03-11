@@ -27,6 +27,7 @@ composer require geekshubs/rabbitmq
 ```
 Add env parameters to configuration in Lumen and Laravel.
 
+
 ```env
 RABBITMQ_HOST=rabbit
 RABBITMQ_PORT=5672
@@ -35,6 +36,7 @@ RABBITMQ_PASSWORD=rabbitmq
 RABBITMQ_VHOST='/'
 ```
 In app/config/app.php add the following :
+
 
 The ServiceProvider to the providers array :
 
