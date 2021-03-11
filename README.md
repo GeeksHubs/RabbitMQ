@@ -25,6 +25,15 @@ Require the `geekshubs/rabbitmq` package in your `composer.json` and update your
 ```sh
 composer require geekshubs/rabbitmq
 ```
+Add env parameters to configuration in Lumen and Laravel.
+
+```env
+RABBITMQ_HOST=rabbit
+RABBITMQ_PORT=5672
+RABBITMQ_USER=rabbitmq
+RABBITMQ_PASSWORD=rabbitmq
+RABBITMQ_VHOST='/'
+```
 In app/config/app.php add the following :
 
 The ServiceProvider to the providers array :
@@ -36,12 +45,18 @@ Geekshubs\RabbitMQ\RabbitMQServiceProvider::class,
 ###  :bulb: Lumen
 
 On Lumen, just register the ServiceProvider manually in your `bootstrap/app.php` file:
+```php
+$app->register(\Geekshubs\RabbitMQ\RabbitMQServiceProvider::class);
+```
 
+and add this lines in same file.
 ```php
 //Add lines to error reflection class
 $app->instance('path.config', app()->basePath() . DIRECTORY_SEPARATOR . 'config');
 $app->instance('path.storage', app()->basePath() . DIRECTORY_SEPARATOR . 'storage');
 ```
+
+
 
 ## :space_invader: Examples
 In this Video 
