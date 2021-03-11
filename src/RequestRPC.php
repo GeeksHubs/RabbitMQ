@@ -45,12 +45,20 @@ final class RequestRPC
     }
 
     public  function messageRecived($resp){
-        $this->response = $resp->body;
-        $resp->delivery_info['channel']->basic_ack($resp->delivery_info['delivery_tag']);
+        $this->message_return = $resp;
+        if($resp->get('correlation_id') !== $this->id ) {
+            $resp->ack();
+            $this->response = $resp;
+        }else{
+            $resp->ack();
+            $this->response = $resp->body;
+        }
     }
 
     public function call(string $id='', string $queue = '', string $queue_return='', string $exchange = '', string $routing_key = '', string $message='')
     {
+
+        $this->id = $id;
         $this->response = null;
         $this->message = null;
         $this->callback_queue = $queue_return;
@@ -86,6 +94,19 @@ final class RequestRPC
 
      }catch (\Exception $ex){
             throw new \Exception("Error repsonse message ->". $ex->getMessage());
+        }
+
+    }
+    public function resend(Connection  $connection_error, string $message, string $queue_error, string $exchange, string $routing_key, string $queue_return):void{
+        try{
+            $channel_error = $connection_error->getChannel();
+            $channel_error->queue_bind($queue_error, $exchange, $routing_key);
+            $publisher_error = new Publisher($connection_error);
+            $publisher_error($queue_error, $exchange, $routing_key, $message);
+        }catch (\Exception $ex){
+            throw new \Exception("Error repsonse message ->". $ex->getMessage());
+        } finally {
+            $connection_error->shutdown();
         }
 
     }
