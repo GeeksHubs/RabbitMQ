@@ -9,7 +9,7 @@ final class RabbitMQ
 {
     private Connection $connection;
     private Connection $connection_error;
-    public function __construct(string $host, string $port, string $username, string $password, string $vhost)
+    public function __construct(string $host='', string $port='', string $username='', string $password='', string $vhost='')
     {
         $this->connection = new Connection($host,$port,$username,$password,$vhost);
         $this->connection_error = new Connection($host,$port,$username,$password,$vhost);
